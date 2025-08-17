@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1400" height="400" viewBox="0 0 1400 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="kv-audio logo">
+  <title>kv-audio — primary logo</title>
+  <defs>
+    <!-- Gradient for the icon strokes -->
+    <linearGradient id="gradIcon" x1="60" y1="0" x2="320" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="50%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+
+    <!-- Gradient for the wordmark (relative to text box) -->
+    <linearGradient id="gradWord" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="50%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+
+    <!-- Soft glow -->
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Icon (KV monogram + subtle audio wave) -->
+  <g transform="translate(60,60)">
+    <!-- subtle wave behind the monogram -->
+    <path d="M0 140 Q 40 60 80 140 T 160 140 T 240 140"
+          fill="none"
+          stroke="url(#gradIcon)"
+          stroke-width="12"
+          stroke-linecap="round"
+          opacity="0.35"
+          filter="url(#softGlow)"/>
+    <!-- K -->
+    <g filter="url(#softGlow)">
+      <path d="M40 20 L40 240"
+            stroke="url(#gradIcon)" stroke-width="22"
+            stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M40 130 L130 40"
+            stroke="url(#gradIcon)" stroke-width="22"
+            stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M40 130 L130 220"
+            stroke="url(#gradIcon)" stroke-width="22"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <!-- V -->
+    <g filter="url(#softGlow)">
+      <path d="M160 40 L200 220 L240 40"
+            stroke="url(#gradIcon)" stroke-width="22"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(360,0)">
+    <text x="0" y="210"
+          font-family="Inter, 'SF Pro Display', 'Segoe UI', system-ui, -apple-system, sans-serif"
+          font-size="160"
+          font-weight="800"
+          letter-spacing="2"
+          fill="url(#gradWord)"
+          >kv-audio</text>
+    <!-- Subtle underline accent -->
+    <rect x="4" y="236" width="580" height="10" rx="5" fill="url(#gradWord)" opacity="0.18"/>
+  </g>
+</svg>

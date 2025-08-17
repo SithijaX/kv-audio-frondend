@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="kv-audio icon">
+  <title>kv-audio — icon</title>
+  <defs>
+    <linearGradient id="gradIcon" x1="0" y1="0" x2="320" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="50%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- subtle wave -->
+  <path d="M20 160 Q 60 80 100 160 T 180 160 T 260 160"
+        fill="none" stroke="url(#gradIcon)" stroke-width="12"
+        stroke-linecap="round" opacity="0.35" filter="url(#softGlow)"/>
+  <!-- K -->
+  <g filter="url(#softGlow)">
+    <path d="M60 40 L60 280" stroke="url(#gradIcon)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M60 160 L150 70" stroke="url(#gradIcon)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M60 160 L150 250" stroke="url(#gradIcon)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- V -->
+  <g filter="url(#softGlow)">
+    <path d="M180 70 L220 250 L260 70" stroke="url(#gradIcon)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
