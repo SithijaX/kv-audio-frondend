@@ -1,5 +1,9 @@
 import Header from "../../components/header";
 import { Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Contact from "./components/contact";
+import Gallery from "./components/gallery";
+import Products from "./components/Products";
 
 export default function HomePage() {
     return (
@@ -8,10 +12,10 @@ export default function HomePage() {
 
             <div className="w-full h-[calc(100vh-100px)] bg-gray-50 ">
                 <Routes>
-                    <Route path="/" element={<h1 className="text-3xl text-center mt-20 bg-gray-50">Welcome to KV Audio</h1>} />
-                    <Route path="/contact" element={<h1 className="text-3xl text-center mt-20 bg-transparent">Contact Us</h1>} />
-                    <Route path="/gallery" element={<h1 className="text-3xl text-center mt-20 bg-gray-50">Gallery</h1>} />
-                    <Route path="/products" element={<h1 className="text-3xl text-center mt-20 bg-gray-50">Our Products</h1>} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/products" element={<Products />} />
                 </Routes>
 
             </div>
