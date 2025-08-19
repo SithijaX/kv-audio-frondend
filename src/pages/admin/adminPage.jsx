@@ -2,53 +2,65 @@ import { BsGraphDown } from "react-icons/bs";
 import { FaRegBookmark, FaRegUser } from "react-icons/fa6";
 import { MdOutlineSpeaker } from "react-icons/md";
 import { Routes , Route, Link } from "react-router-dom";
+import { IoMdSearch } from "react-icons/io";
 
 
 export default function AdminPage() {
   return (
-    <div className="w-full h-screen flex">
-      <div className="w-[400px] h-full bg-green-200">
+    <>
+      <div className="w-screen h-screen flex flex-col">
 
-        {/* Dashboard Button */}
-        <button className="w-full h-[40px] text-2xl font-bold flex justify-center items-center gap-2">
-          <BsGraphDown />
-          Dashboard
-        </button>
+        <header className="w-full h-[65px] shadow-md flex items-center px-4 gap-4 bg-white">
+  {/* Logo */}
+  <img
+    src="/kv-audio-logo.svg"
+    alt="kv-audio logo"
+    className="h-[45px] object-contain"
+  />
 
-        {/* Bookings Button */}
-        <Link to="/admin/bookings">
-          <button className="w-full h-[40px] text-2xl font-bold flex justify-center items-center gap-2">
-            <FaRegBookmark />
-            Bookings
-          </button>
-        </Link>
-
-        {/* Users Button */}
-        <Link to="/admin/users">
-          <button className="w-full h-[40px] text-2xl font-bold flex justify-center items-center gap-2">
-            <FaRegUser />
-            Users
-          </button>
-        </Link>
-
-        {/* Speakers Button */}
-        <Link to="/admin/products">
-          <button className="w-full h-[40px] text-2xl font-bold flex justify-center items-center gap-2">
-            <MdOutlineSpeaker />
-            Products
-          </button>
-        </Link>
-
-      </div>
-
-      <div className="w-[calc(100%-400px)] h-full bg-blue-200">
-        <Routes>
-          {/* Add your routes here */}
-          {/* Bookings */}
-          <Route path="/bookings" element={<h1>Bookings Page</h1>} />
-          <Route path="/products" element={<h1>Products Page</h1>} />
-        </Routes>
-      </div>
+  {/* Search Bar (flex-grow makes it expand between logo & user) */}
+  <div className="flex-1 flex justify-center">
+    <div className="relative w-full max-w-lg">
+      <input
+        type="text"
+        placeholder="Type to search..."
+        className="w-full pl-10 pr-4 py-2 text-gray-700 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+      />
+      <IoMdSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-blue-600 text-lg" />
     </div>
+  </div>
+
+  {/* User Icon */}
+  <FaRegUser className="text-purple-800 text-2xl cursor-pointer" />
+</header>
+
+
+        <div className="w-screen h-[calc(100vh-65px)] flex flex-col">
+          {/* side bar */}
+          <aside className="w-[250px] h-full bg-gray-100 p-4">
+            <h2 className="text-lg font-semibold mb-4">Admin Menu</h2>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/admin/dashboard" className="text-blue-600 hover:underline">
+                  Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link to="/admin/users" className="text-blue-600 hover:underline">
+                  Users
+                </Link>
+              </li>
+              <li>
+                <Link to="/admin/settings" className="text-blue-600 hover:underline">
+                  Settings
+                </Link>
+              </li>
+            </ul>
+          </aside>
+        </div>
+
+
+      </div>
+    </>
   );
 }
