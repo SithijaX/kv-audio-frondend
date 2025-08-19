@@ -21,9 +21,9 @@ export default function AdminPage() {
         {/* Header */}
         <AdminPageHeader />
 
-        <div className="w-screen h-[calc(100vh-65px)] flex }">
+        <div className="w-screen h-[calc(100vh-70px)] flex overflow-hidden">
           {/* side bar */}
-          <aside className="w-[200px] h-full bg-white border-r border-gray-200 p-5 shadow-sm">
+          <aside className="w-[175px] h-full bg-white border-r border-gray-200 p-5 shadow-sm">
  
             {/*Side bar title */}
             <h2 className="text-lg font-semibold text-gray-700 mb-6">
