@@ -7,7 +7,7 @@ import { IoMdSearch } from "react-icons/io";
 export default function AdminPageHeader(){
     return (
         <>
-            <header className="w-full h-[70px] shadow-md flex items-center px-4 gap-4 bg-white">
+            <header className="w-full h-[80px] shadow-md flex items-center px-4 gap-4 bg-white">
                 {/* Logo */}
                 <img
                     src="/kv-audio-logo.svg"
