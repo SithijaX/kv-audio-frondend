@@ -1,5 +1,5 @@
 //routes
-import { Routes , Route, Link } from "react-router-dom";
+import {BrowserRouter, Routes , Route, Link } from "react-router-dom";
 
 //pages
 import AdminPageHeader from "../../components/adminPageHeader.jsx";
@@ -16,6 +16,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 export default function AdminPage() {
   return (
     <>
+      <BrowserRouter>
       <div className="w-screen h-screen flex flex-col">
 
         {/* Header */}
@@ -100,6 +101,7 @@ export default function AdminPage() {
 
 
       </div>
+      </BrowserRouter>
     </>
   );
 }
