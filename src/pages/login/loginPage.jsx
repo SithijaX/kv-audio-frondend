@@ -1,6 +1,15 @@
+import { useState } from 'react';
 import './login.css'
 
 export default function LoginPage() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+  function login() {
+    alert(`Email: ${email}, Password: ${password}`);
+  }
+
+
   return (
     <div className="w-full h-screen bgIMG flex justify-center items-center">
       {/* Glassmorphic Card */}
@@ -16,13 +25,18 @@ export default function LoginPage() {
         />
 
         {/* Form */}
-        <form className="flex flex-col gap-5 w-full">
+        <form className="flex flex-col gap-5 w-full" onSubmit={login}>
           <input 
             type="text" 
-            placeholder="Username" 
+            placeholder="E-mail" 
             className="p-3 rounded-md bg-white/10 border border-white/20 
                        text-white placeholder-gray-300 focus:outline-none 
                        focus:ring-2 focus:ring-blue-500 transition"
+            
+              value={email}
+              onChange={(e)=>{
+              setEmail(e.target.value);
+            }}
           />
           <input 
             type="password" 
@@ -30,10 +44,15 @@ export default function LoginPage() {
             className="p-3 rounded-md bg-white/10 border border-white/20 
                        text-white placeholder-gray-300 focus:outline-none 
                        focus:ring-2 focus:ring-purple-500 transition"
+            value={password}
+            onChange={(e)=>{
+              setPassword(e.target.value);
+            }}
           />
 
           <button 
             type="submit" 
+            
             className="mt-4 w-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 
                        text-white py-3 rounded-md font-semibold 
                        shadow-lg hover:shadow-pink-500/40 
