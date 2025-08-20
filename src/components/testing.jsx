@@ -1,7 +1,8 @@
 import { useState } from "react"
 
 export default function Testing() {
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
+    const [fruit, setFruit] = useState("coconut");
 
     return (
         <div className="w-full h-screen flex flex-col items-center justify-center relative gap-4">
@@ -14,13 +15,17 @@ export default function Testing() {
                             flex items-center justify-center flex-col gap-4">
 
                  <span className="text-3xl text-black ">
-                    Counter
+                    Fruit counter
                  </span>
 
                 {/*Display*/}
                 <div className="w-[320px] h-[70px] bg-blue-50 rounded-xl shadow-2xl flex items-center justify-center">
                     <h1 className="text-3xl font-bold text-blue-500">
-                        {count}
+                        <div className="flex items-center gap-3">
+                            <span>{fruit + "'s :  "}</span>
+                            <span>{count}</span>
+                        </div>
+                        
                     </h1>
                 </div>
 
@@ -48,9 +53,11 @@ export default function Testing() {
                 
             </div>
 
-            <div className="w-[700px] h-[100px] flex flex-row">
+            <div className="w-[700px] h-[100px] flex flex-row justify-between">
                 {/* Coconut */}
-                <button className="ml-4 px-4 py-2 w-[100px] h-[45px] bg-green-400 text-xl text-white rounded-lg
+                <button 
+                        onClick={() => setFruit("coconut")}
+                        className="ml-4 px-4 py-2 w-[100px] h-[45px] bg-green-400 text-xl text-white rounded-lg
                                    shadow-md hover:bg-green-600 flex items-center justify-center">
                     <span className="text-lg font-semibold">
                         Coconut
@@ -58,26 +65,32 @@ export default function Testing() {
                 </button>
 
                 {/* Apple */}
-                <button className="ml-4 px-4 py-2 w-[100px] h-[45px] bg-green-400 text-xl text-white rounded-lg
+                <button
+                        onClick={() => setFruit("Apple")}
+                        className="ml-4 px-4 py-2 w-[100px] h-[45px] bg-green-400 text-xl text-white rounded-lg
                                    shadow-md hover:bg-green-600 flex items-center justify-center">
                     <span className="text-lg font-semibold">
-                        Coconut
+                        Apple
                     </span>
                 </button>
 
                 {/* Orange */}
-                <button className="ml-4 px-4 py-2 w-[100px] h-[45px] bg-green-400 text-xl text-white rounded-lg
+                <button
+                        onClick={() => setFruit("Orange")}
+                        className="ml-4 px-4 py-2 w-[100px] h-[45px] bg-green-400 text-xl text-white rounded-lg
                                    shadow-md hover:bg-green-600 flex items-center justify-center">
                     <span className="text-lg font-semibold">
-                        Coconut
+                        Orange
                     </span>
                 </button>
 
                 {/* Mangus */}
-                <button className="ml-4 px-4 py-2 w-[100px] h-[45px] bg-green-400 text-xl text-white rounded-lg
+                <button 
+                        onClick={() => setFruit("Mangus")}
+                        className="ml-4 px-4 py-2 w-[100px] h-[45px] bg-green-400 text-xl text-white rounded-lg
                                    shadow-md hover:bg-green-600 flex items-center justify-center">
                     <span className="text-lg font-semibold">
-                        Coconut
+                        Mangus
                     </span>
                 </button>
 
