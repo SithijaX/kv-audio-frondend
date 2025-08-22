@@ -1,12 +1,30 @@
 import { useState } from 'react';
 import './login.css'
+import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-  function login() {
-    alert(`Email: ${email}, Password: ${password}`);
+  function login(e) {
+    e.preventDefault();
+
+    axios.post('http://localhost:5000/api/user/login', 
+      {
+        email: email,
+        password: password
+      }
+    ).then((response) => {
+      if (response.status === 202) {
+        toast.success('Login Successfully !')
+        console.log(response);
+      } else {
+        toast.error('Login failed.');
+      }
+    }).catch((error) => {
+      toast.error("There was an error!", error);
+    });
   }
 
 
@@ -27,7 +45,7 @@ export default function LoginPage() {
         {/* Form */}
         <form className="flex flex-col gap-5 w-full" onSubmit={login}>
           <input 
-            type="text" 
+            type="email" 
             placeholder="E-mail" 
             className="p-3 rounded-md bg-white/10 border border-white/20 
                        text-white placeholder-gray-300 focus:outline-none 
