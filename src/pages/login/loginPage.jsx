@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './login.css'
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function LoginPage() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -19,11 +21,22 @@ export default function LoginPage() {
       if (response.status === 202) {
         toast.success('Login Successfully !')
         console.log(response);
+
+        const user = response.data.user;
+        console.log(response.data.token);
+        localStorage.setItem("token", response.data.token);
+
+        if (user.role === 'admin') {
+          navigate ('/admin');
+        } else {
+          navigate('/home');
+        }
+        
       } else {
         toast.error('Login failed.');
       }
     }).catch((error) => {
-      toast.error("There was an error!", error);
+      toast.error(error.response.data.message || 'An error occurred during login.');
     });
   }
 
